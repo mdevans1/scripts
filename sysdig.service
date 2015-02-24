@@ -1,0 +1,12 @@
+[Unit]
+Description=sysdig Service
+After=network-pre.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/sysdig -w /var/log/sysdig.dump
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
